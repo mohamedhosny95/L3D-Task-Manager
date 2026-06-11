@@ -30,7 +30,7 @@ def create_app(config_name=None):
     migrate.init_app(app, db)
     login_manager.init_app(app)
     csrf.init_app(app)
-    socketio.init_app(app, async_mode='eventlet', cors_allowed_origins='*')
+    socketio.init_app(app, async_mode='gevent', cors_allowed_origins='*')
 
     # Flask-Login settings
     login_manager.login_view = 'auth.login'
