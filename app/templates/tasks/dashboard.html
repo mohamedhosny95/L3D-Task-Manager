@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — Lancer3D Tasks{% endblock %}
+{% block content %}
+<div class="min-h-screen flex items-center justify-center">
+    <div class="text-center">
+        <h1 class="text-2xl font-bold text-white mb-2">Welcome, {{ current_user.name }}!</h1>
+        <p style="color:#7B7E99" class="mb-6">Dashboard — full layout coming in Component 4 &amp; 10</p>
+        <a href="{{ url_for('auth.logout') }}"
+           class="px-4 py-2 rounded-lg text-sm font-medium text-white"
+           style="background-color:#FF4D6A">
+            Logout
+        </a>
+    </div>
+</div>
+{% endblock %}

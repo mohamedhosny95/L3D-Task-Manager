@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}Login — Lancer3D Tasks{% endblock %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center px-4">
+    <div class="w-full max-w-md">
+
+        <!-- Logo / Brand -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-white mb-1">Lancer<span style="color:#6C63FF">3D</span></h1>
+            <p class="text-sm" style="color:#7B7E99">Task Management System</p>
+        </div>
+
+        <!-- Card -->
+        <div class="rounded-2xl p-8 shadow-2xl" style="background-color:#1A1D27; border:1px solid #21253A">
+            <h2 class="text-xl font-semibold text-white mb-6">Sign in to your account</h2>
+
+            <form method="POST" action="{{ url_for('auth.login') }}" novalidate>
+                <!-- CSRF token -->
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+                <!-- Email -->
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium mb-1" style="color:#7B7E99">Email address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        autofocus
+                        value="{{ request.form.get('email', '') }}"
+                        class="w-full px-4 py-2.5 rounded-lg text-sm outline-none focus:ring-2 transition"
+                        style="background-color:#21253A; border:1px solid #2E3250; color:#F0F0F5; focus:ring-color:#6C63FF"
+                        placeholder="you@lancer3d.com"
+                    >
+                </div>
+
+                <!-- Password -->
+                <div class="mb-5">
+                    <label for="password" class="block text-sm font-medium mb-1" style="color:#7B7E99">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        required
+                        class="w-full px-4 py-2.5 rounded-lg text-sm outline-none focus:ring-2 transition"
+                        style="background-color:#21253A; border:1px solid #2E3250; color:#F0F0F5"
+                        placeholder="••••••••"
+                    >
+                </div>
+
+                <!-- Remember me -->
+                <div class="flex items-center mb-6">
+                    <input type="checkbox" id="remember" name="remember" class="rounded mr-2" style="accent-color:#6C63FF">
+                    <label for="remember" class="text-sm" style="color:#7B7E99">Remember me</label>
+                </div>
+
+                <!-- Submit -->
+                <button
+                    type="submit"
+                    class="w-full py-2.5 rounded-lg text-sm font-semibold text-white transition hover:opacity-90 active:scale-95"
+                    style="background-color:#6C63FF"
+                >
+                    Sign In
+                </button>
+            </form>
+        </div>
+
+        <p class="text-center text-xs mt-6" style="color:#7B7E99">
+            Contact your admin if you need an account.
+        </p>
+    </div>
+</div>
+{% endblock %}
