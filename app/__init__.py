@@ -57,4 +57,7 @@ def create_app(config_name=None):
     # Register socket events
     from app.sockets import events  # noqa: F401
 
+    # Import models so Flask-Migrate can detect them
+    from app import models  # noqa: F401
+
     return app

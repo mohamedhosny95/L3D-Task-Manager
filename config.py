@@ -18,7 +18,7 @@ class Config:
 class DevelopmentConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
-        'postgresql://localhost/lancer3d_tasks'
+        'sqlite:///lancer3d_tasks.db'
 
 
 class ProductionConfig(Config):
